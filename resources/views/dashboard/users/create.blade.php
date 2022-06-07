@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>{{__('site.last_name')}}</label>
+                            <label>{{__('site.last_name')}}</label>     
                             <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
                         </div>
 

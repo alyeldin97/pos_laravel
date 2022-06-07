@@ -39,19 +39,28 @@
                             </select>
                         </div>
 
-                        @foreach (config('translatable.locales') as $locale)
-                            <div class="form-group">
-                                <label>@lang('site.' . $locale . '.name')</label>
-                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $product->name }}">
-                            </div>
+                  
+                        <div class="form-group">
+                            <label>@lang('site.ar.name')</label>
+                            <input type="text" name="name[ar]" class="form-control" value="{{$product->getTranslations('name')['ar']}}" >
+                        </div>
 
-                            <div class="form-group">
-                                <label>@lang('site.' . $locale . '.description')</label>
-                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ $product->description }}</textarea>
-                            </div>
+                        <div class="form-group">
+                            <label>@lang('site.ar.description')</label>
 
-                        @endforeach
+                            <textarea name="description[ar]" class="form-control ckeditor"  >{{$product->getTranslations('description')['ar']}}</textarea>
+                        </div>
 
+                        <div class="form-group">
+                            <label>@lang('site.en.name')</label>
+
+                            <input type="text" name="name[en]" class="form-control" value="{{$product->getTranslations('name')['en']}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.en.description')</label>
+                            <textarea name="description[en]" class="form-control ckeditor" >{{$product->getTranslations('description')['en']}}</textarea>
+                        </div>
                         <div class="form-group">
                             <label>@lang('site.image')</label>
                             <input type="file" name="image" class="form-control image">

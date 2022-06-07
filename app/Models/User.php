@@ -22,9 +22,9 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
-
         'email',
         'password',
+        'image',
     ];
 
     /**
@@ -37,6 +37,23 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = [
+        'image',
+    ];
+
+
+
+    public function getFirstNameAttribute($value){
+        return ucfirst($value);
+    }
+
+    public function getLastNameAttribute($value){
+        return ucfirst($value);
+    }
+
+    public function getImagePathAttribute(){
+        return asset('uploads/user_images/'.$this->image);
+    }
     /**
      * The attributes that should be cast.
      *

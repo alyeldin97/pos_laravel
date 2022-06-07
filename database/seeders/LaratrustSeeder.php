@@ -48,9 +48,9 @@ class LaratrustSeeder extends Seeder
                     $permissionValue = $mapPermission->get($perm);
 
                     $permissions[] = \App\Models\Permission::firstOrCreate([
-                        'name' => $module . '_' . $permissionValue,
-                        'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
-                        'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
+                        'name' => $permissionValue . '_' . $module,
+                        'display_name' => ucfirst($module) . ' ' . ucfirst($permissionValue),
+                        'description' => ucfirst($module) . ' ' . ucfirst($permissionValue),
                     ])->id;
 
                     $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);

@@ -20,7 +20,7 @@
 
                 <div class="box-header with-border">
 
-                    <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users') <small>{{ $users->total() }}</small></h3>
+                    <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users') <small>{{$users->total()}}</small></h3>
 
                     <form action="{{ route('dashboard.users.index') }}" method="get">
 
@@ -76,7 +76,7 @@
                                             <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_users'))
-                                            <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="post" style="display: inline-block">
+                                            <form action="{{route('dashboard.users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
                                                 <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
@@ -88,7 +88,7 @@
                                 </tr>
                             
                             @endforeach
-                            </tbody>
+                            </tbody> 
 
                         </table><!-- end of table -->
                         

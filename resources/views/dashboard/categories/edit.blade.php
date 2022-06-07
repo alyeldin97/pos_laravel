@@ -10,7 +10,7 @@
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.categories.index') }}"> @lang('site.categories')</a></li>
+                {{-- <li><a href="{{ route('dashboard.categories.index') }}"> @lang('site.categories')</a></li> --}}
                 <li class="active">@lang('site.edit')</li>
             </ol>
         </section>
@@ -32,12 +32,21 @@
                         {{ csrf_field() }}
                         {{ method_field('put') }}
 
-                        @foreach (config('translatable.locales') as $locale)
+                        {{-- @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.name')</label>
                                 <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $category->translate($locale)->name }}">
                             </div>
-                        @endforeach
+                        @endforeach --}}
+                        <div class="form-group">
+                            <label>@lang('site.ar.name')</label>
+                            <input type="text" name="name[ar]" class="form-control" value={{$category->getTranslations('name')['ar']}}>
+                        </div>
+                        <div class="form-group">
+                            <label>@lang('site.en.name')</label>
+                            <input type="text" name="name[en]" class="form-control"value={{$category->getTranslations('name')['en']}} >
+                        </div>
+                      
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> @lang('site.edit')</button>

@@ -29,9 +29,9 @@
                         {{ csrf_field() }}
                         {{ method_field('post') }}
 
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label>@lang('site.categories')</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category_id" class="form-control input-lg">
                                 <option value="">@lang('site.all_categories')</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
@@ -40,26 +40,35 @@
                         </div>
                         
 
-                        @foreach (config('translatable.locales') as $locale)
-                            <div class="form-group">
-                                <label>@lang('site.' . $locale . '.name')</label>
-                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ old($locale . '.name') }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label>@lang('site.' . $locale . '.description')</label>
-                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ old($locale . '.description') }}</textarea>
-                            </div>
-
-                        @endforeach
-
                         <div class="form-group">
-                            <label>@lang('site.image')</label>
-                            <input type="file" name="image" class="form-control image">
+                            <label>@lang('site.ar.name')</label>
+                            <input type="text" name="name[ar]" class="form-control" value="{{old('name.ar')}}" >
                         </div>
 
                         <div class="form-group">
-                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            <label>@lang('site.ar.description')</label>
+
+                            <textarea name="description[ar]" class="form-control ckeditor"  >{{old('description.ar')}}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.en.name')</label>
+
+                            <input type="text" name="name[en]" class="form-control" value="{{old('name.en')}}" >
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.en.description')</label>
+                            <textarea name="description[en]" class="form-control ckeditor" >{{old('description.en')}}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.image')</label>
+                            <input type="file" name="image" class="form-control image" >
+                        </div>
+
+                        <div class="form-group">
+                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" >
                         </div>
 
                         <div class="form-group">
