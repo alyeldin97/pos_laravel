@@ -18,6 +18,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function orders(){
+        return $this->belongsToMany(Order::class);
+    }
+
     public function getProfitPercentAttribute(){
         $salePrice=$this->sale_price;
         $purchasePrice=$this->purchase_price;

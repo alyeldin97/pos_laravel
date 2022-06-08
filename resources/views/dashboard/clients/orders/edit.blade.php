@@ -158,9 +158,9 @@
 
                             <div class="box-header">
 
-                                <h3 class="box-title" style="margin-bottom: 10px">@lang('site.previous_orders')
+                                {{-- <h3 class="box-title" style="margin-bottom: 10px">@lang('site.previous_orders')
                                     <small>{{ $orders->total() }}</small>
-                                </h3>
+                                </h3> --}}
 
                             </div><!-- end of box header -->
 

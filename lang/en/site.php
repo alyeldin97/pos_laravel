@@ -46,6 +46,23 @@ return [
     'phone'=>'Phone',
     'address'=>'Address',
     'add_order'=>'Add Order',
+    'price'=>'Price',
+    'quantity'=>'Quantity',
+    'product'=>'Product',
+    'total'=>'Total',
+    'client_name'=>'Client Name ',
+    'created_at'=>'Created At',
+    'show_products'=>'Show Products',
+    'no_records'=>'No Records',
+    'show'=>'Show',
+    'loading'=>'Loading',
+    'print'=>'Print',
+    'edit_order'=>'Edit Order',
+
+
+    
+    
+
 
 
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\dashboard\CategoryConroller;
 use App\Http\Controllers\dashboard\client\OrderController;
 use App\Http\Controllers\dashboard\ClientController;
 use App\Http\Controllers\dashboard\DashboardController;
+use App\Http\Controllers\dashboard\OrderController as DashboardOrderController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             OrderController::class,
 
         ); //end of clients order routes
+
+        //orders route
+        Route::resource(
+            'orders',
+            DashboardOrderController::class
+
+
+        ); //end of orders routes
+
+
+        Route::get('orders/{order}/products', [DashboardOrderController::class, 'products'])->name('orders.products');
     });
 });
 
